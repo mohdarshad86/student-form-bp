@@ -3,7 +3,7 @@ import './style.css'
 function StudentForm() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("male");
     const [email, setEmail] = useState("");
     const [students, setStudents] = useState([]);
 
@@ -29,7 +29,7 @@ function StudentForm() {
         setStudents([...students, newStudent]);
         setName("");
         setAge("");
-        setGender("");
+        setGender("male");
         setEmail("");
     };
 
@@ -64,26 +64,28 @@ function StudentForm() {
                 <button type="submit">Submit</button>
             </form>
             <h2>Student List</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {students.map((student, index) => (
-                        <tr key={index}> 
-                            <td>{student.name}</td>
-                            <td>{student.age}</td>
-                            <td>{student.gender}</td>
-                            <td>{student.email}</td>
+            {students.length > 0 && (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Email</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {students.map((student, index) => (
+                            <tr key={index}>
+                                <td>{student.name}</td>
+                                <td>{student.age}</td>
+                                <td>{student.gender}</td>
+                                <td>{student.email}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 }
