@@ -39,12 +39,12 @@ function StudentForm() {
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
-                    <input type="text" value={name} onChange={handleNameChange} />
+                    <input type="text" value={name} required onChange={handleNameChange} />
                 </label>
                 <br />
                 <label>
                     Age:
-                    <input type="text" value={age} onChange={handleAgeChange} />
+                    <input type="text" value={age} required onChange={handleAgeChange} />
                 </label>
                 <br />
                 <label>
@@ -58,7 +58,7 @@ function StudentForm() {
                 <br />
                 <label>
                     Email:
-                    <input type="text" value={email} onChange={handleEmailChange} />
+                    <input type="text" value={email} required onChange={handleEmailChange} />
                 </label>
                 <br />
                 <button type="submit">Submit</button>
